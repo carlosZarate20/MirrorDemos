@@ -38,22 +38,22 @@
 
         <div class="side2">
             <div id="Block1" class="asideBlock" >
-                <div class="weatherTodayLogo"> <i class="fas fa-cloud"></i></div>
+                <div class="weatherTodayLogo" id ="logoClima"></div>   
+                <div class="weatherTodayType"  data-bind-templateSix="asideBlock8Content3"> 
+                </div>
                 <div class="weatherToday1" data-bind-templateSix="asideBlock11Content1"></div>
                 <div class="weatherMin" data-bind-templateSix="asideBlock11Content2"></div>
                 <div class="weatherMax" data-bind-templateSix="asideBlock11Content3"></div>
             </div>
             <div class="asideBlock" id="Block2">
-                <div class="asideBlockPattern2C1" data-bind-templateSix="asideBlock12Content1"></div>
-                <div class="asideBlockPattern2C2" data-bind-templateSix="asideBlock12Content2"></div>
-                <div class="asideBlockPattern2C3" data-bind-templateSix="asideBlock12Content3"></div>
+                    <TABLE class="minmaxtempTitle" id ="tablaClima"></TABLE>      
             </div>
             <div class="asideBlock" id="Block3">
                 <div class="DayPlanTitle" data-bind-templateSix="asideBlock13Content1"></div>
-                <div  id ="labelCalendar" class="DayPlanTitle2" data-bind-templateSix="prueba_label" style="display: none;"></div>
+                <div  id ="labelCalendar" class="DayPlanTitle2" data-bind-templateSix="prueba_label" style="display: none; opacity: 1;"></div>
                 <div id = "Plan1" class="DayPlanItem1" data-bind-templateSix="asideBlock13Content2"></div>
                 <div class="DayPlanItem2" data-bind-templateSix="asideBlock13Content3"></div>
-                  <div class="DayPlanItem3" data-bind-templateSix="asideBlock14Content1"></div>
+                <div class="DayPlanItem3" data-bind-templateSix="asideBlock14Content1"></div>
                 <div class="DayPlanItem4" data-bind-templateSix="asideBlock14Content2"></div>
                 <div class="DayPlanItem5" data-bind-templateSix="asideBlock14Content3"></div>
             </div>
@@ -64,7 +64,7 @@
                 <div class="ChecklistTitle" data-bind-templateSix="asideBlock15Content1"></div>
                 <div  id ="labelTask" class="ChecklistTitle2" data-bind-templateSix="prueba_task" style="display: none;"></div>
                 <div id = "check1" class="ChecklistItem1" data-bind-templateSix="asideBlock15Content2"></div>
-                <div class="ChecklistItem2" data-bind-templateSix="asideBlock15Content3"></div>
+                <div id="check2" class="ChecklistItem2" data-bind-templateSix="asideBlock15Content3"></div>
                   <div class="ChecklistItem3" data-bind-templateSix="asideBlock16Content1"></div>
                 <div class="ChecklistItem4" data-bind-templateSix="asideBlock16Content2"></div>
                 <div class="ChecklistItem5" data-bind-templateSix="asideBlock16Content3"></div>
@@ -146,8 +146,6 @@
                 <div class="Panel2Content4" data-bind-templateSix="asideBlock5Content3"></div>
             </div>
             <div class="asideBlock">
-                <button onclick="mostrarVoz();" class="btn btn-primary">
-                    <i class="fas fa-microphone"></i>Microfono</button>
                 <div class="mictext1" data-bind-templateSix="asideBlock6Content1"></div>
                 <div class="mictext2" data-bind-templateSix="asideBlock6Content2"></div>
                 <div class="mictext3" data-bind-templateSix="asideBlock6Content3"></div>

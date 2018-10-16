@@ -37,10 +37,114 @@
      */
     function bindData(jsonData) {
         info = new BindClass('templateSix');
-        /* Header Div */
+        console.log("ssds")
+
+        $.ajax({
+          method: "GET",
+          url: "https://api.darksky.net/forecast/7af51a01e29c8ddb7a548fad3cf35a05/-12.193731,-76.708493?units=si",
+          crossDomain: true,
+          dataType: 'jsonp',
+
+        })
+          .done(function( data ) {
+            console.log( "Data Saved: ");
+             info.set('asideBlock8Content3',data.currently.icon);
+       
+             info.set('asideBlock11Content1', Math.round(data.currently.temperature) + "°C");
+       
+                 info.set('asideBlock11Content2',  changeicon(data.daily.data[0].icon) + "↑"+Math.round(data.daily.data[0].temperatureMax) + "°C");
+             info.set('asideBlock11Content3',  changeicon(data.daily.data[0].icon) + "↓"+Math.round(data.daily.data[0].temperatureMin) + "°C ");
+       
+            
+             function changeicon(icon) {
+    switch(icon) {
+        case "clear-day":
+            return '<i class="fas fa-cloud-sun"></i>';
+        case "clear-night":
+            return '<i class="fas fa-cloud-moon"></i>';
+      case "rain":
+            return '<i class="far fa-umbrella"></i>';
+        case "snow":
+            return '<i class="fas fa-snowflake"></i>';
+
+      case "sleet":
+            return '<i class="fas fa-stroopwafel"></i>';
+        case "wind":
+            return '<i class="fas fa-wind"></i>';
+
+      case "fog":
+            return '<i class="fas fa-cloud"></i>';
+
+     case "cloudy":
+            return '<i class="fab fa-cloudversify"></i>';
+        case "partly-cloudy-day":
+            return '<i class="fab fa-soundcloud"></i>';
+
+      case "partly-cloudy-night":
+            return '<i class="fas fa-cloud-moon"></i>';
+
+   default:
+            return '<i class="fas fa-cloud"></i>';
+    }
+   } 
+             function getDayString(number) {
+    switch(number) {
+        case 0:
+            return "Do";
+        case 1:
+            return "Lu";
+      case 2:
+            return "Ma";
+        case 3:
+            return "Mi";
+
+      case 4:
+            return "Ju";
+        case 5:
+            return "Vi";
+
+      case 6:
+            return "Sa";
+
+    }
+}
+
+var html = "";
+
+html += "<tr>"
+for(var i=0; i<7; ++i) {
+    var date = new Date();
+    date.setDate(date.getDate() + i);
+    html += "<td>" + getDayString(date.getDay()) + "</td>";
+}
+html += "</tr>"
+
+
+html += "<tr>"
+for(var i=0; i<7; ++i) {
+    html += "<td>"  +  changeicon(data.daily.data[i].icon)  +Math.round(data.daily.data[i].temperatureMax) + "°C" + "</td>"
+}
+html += "</tr>"
+
+html += "<tr>"
+for(var i=0; i<7; ++i) {
+    html += "<td>" +  changeicon(data.daily.data[i].icon) + Math.round(data.daily.data[i].temperatureMin) + "°C" + "</td>"
+}
+
+
+$("#tablaClima").html(html);
+
+var html2 = changeicon(data.currently.icon);
+$("#logoClima").html(html2);
+
+          });
+
         info.set('headerImage', jsonData.headerImage);
         info.set('prueba_label', jsonData.prueba_label);
         info.set('prueba_task', jsonData.prueba_task);
+
+        /* Header Div */
+        info.set('headerImage', jsonData.headerImage);
         /* Showcase Div */
         info.set('showcaseImg', jsonData.showcaseImg);
         info.set('heading1', jsonData.heading1);
@@ -135,7 +239,7 @@
      */
     function loadDoc(method, url) {
         var req = new XMLHttpRequest();
-        req.open(method, url, false);
+        req.open(method, url, true);
         req.onload = function () {
             dataSet = JSON.parse(req.responseText);
             bindData(dataSet);

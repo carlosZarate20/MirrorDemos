@@ -21,9 +21,9 @@ if(annyang){
         element6.style.display = 'block';
         element7.style.opacity = "0.5";
         element8.style.opacity = "0.5";
-        responsiveVoice.speak("Abriendo Comandos", "Spanish Latin American Male");
+        responsiveVoice.speak("Buenos días, Carlos", "Spanish Latin American Male");
       },
-      'Mirror Cerrar': function(){
+      'Cerrar': function(){
         element.style.display = 'none';
         element2.style.opacity = '1';
         element3.style.opacity = '1';
@@ -34,20 +34,38 @@ if(annyang){
         element8.style.opacity = "1";
         plan1.style.background = "none";
         check1.style.background = "none";
-        responsiveVoice.speak("Cerrando Comandos", "Spanish Latin American Male");
+        check2.style.background = "none";
+        responsiveVoice.speak("Hasta Luego", "Spanish Latin American Male");
       },
       'Ver agenda 1': function(){
         element.style.display = 'block';
         plan1.style.background = "#e3e3e3";
+        element4.style.opacity = '1';
+        check1.style.background = "none";
+        check2.style.background = "none";
         responsiveVoice.speak("En 15 minutos lonche con mamá", "Spanish Latin American Male");
       },
       'Ver pendiente 1': function(){
         element6.style.display = 'block';
+        plan1.style.background = "none";
         check1.style.background = "#e3e3e3";
+        check2.style.background = "none";
+        element5.style.opacity = '1';
+        element2.style.opacity = '1';
         responsiveVoice.speak("Coordinar reunión empleados", "Spanish Latin American Male");
+      },
+      'Ver pendiente 2': function(){
+        element6.style.display = 'block';
+        plan1.style.background = "none";
+        check1.style.background = "none";
+        check2.style.background = "#e3e3e3";
+        element5.style.opacity = '1';
+        element2.style.opacity = '1';
+        responsiveVoice.speak("Sacar cita al dentista", "Spanish Latin American Male");
       }
     }
     annyang.debug();
+    //  annyang.setLanguage('en-US');
     annyang.setLanguage('es-PE');
     annyang.addCommands(commands);
     

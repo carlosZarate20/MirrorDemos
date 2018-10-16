@@ -211,7 +211,21 @@ html, body {
     color: #FFFFFF;
     position: absolute;
 }
+.minmaxtempTitle {
+    top: 12px;
+    font: 19px museo-sans-300;
+    color: #FFFFFF;
+    position: absolute;
+    float: left;
+}
+.minmaxtempTitle tr:first-child td {
+    font-weight: bold;
+    text-align: center;
+}
+.minmaxtempTitle td {
 
+    padding: 4px;
+}
 /* Pattern 2 - 3 Line */
 .NowPlayingImage {
     left:10px;
@@ -370,6 +384,13 @@ html, body {
     font: 22px museo-sans-300;
     color: #FFFFFF;
     position: absolute;
+}
+.weatherTodayType {
+    top: 50px;
+    font: 20px museo-sans-300;
+    color: #FFFFFF;
+    position: absolute;
+    float: left;
 }
 
 .weatherTodayLogo {
